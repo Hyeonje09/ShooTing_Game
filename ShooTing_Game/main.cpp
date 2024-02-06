@@ -6,12 +6,13 @@
 
 /* 콘솔 창 세팅 */
 void Setting_Console() {
-	system("Flight Game"); /* 콘솔창 이름 */
+	SetConsoleTitle(TEXT("Flight Game")); /* 콘솔창 이름 */
 	system("mode con:cols=60 lines=60"); /* 콘솔창 크기 */
 
 	CONSOLE_CURSOR_INFO ConsoleCursor;
 	ConsoleCursor.bVisible = 0;
 	ConsoleCursor.dwSize = 1;
+
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleCursorInfo(consoleHandle, &ConsoleCursor);
 }	
@@ -20,6 +21,7 @@ void textcolor(int color_number) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 9);
 }
 
+/* 커서의 움직임(2D) */
 void gotoxy(int x, int y) {
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	COORD Cur;
